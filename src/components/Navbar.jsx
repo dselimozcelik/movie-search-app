@@ -14,7 +14,7 @@
 
 import { useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({ currentPage, onPageChange }) => {
   // State for managing search input value
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,20 +34,26 @@ const Navbar = () => {
           <div className="flex-1 flex items-center justify-center space-x-8">
             {/* Navigation links container */}
             <div className="flex space-x-4">
-              {/* Movie link with hover effect */}
-              <a 
-                href="#" 
-                className="text-[#BFDBF7] hover:text-[#1F7A8C] px-3 py-2 rounded-md text-sm font-medium"
+              <button 
+                onClick={() => onPageChange('movies')}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  currentPage === 'movies'
+                    ? 'text-[#1F7A8C] bg-[#BFDBF7]'
+                    : 'text-[#BFDBF7] hover:text-[#1F7A8C]'
+                }`}
               >
                 Movies
-              </a>
-              {/* Series link with hover effect */}
-              <a 
-                href="#" 
-                className="text-[#BFDBF7] hover:text-[#1F7A8C] px-3 py-2 rounded-md text-sm font-medium"
+              </button>
+              <button 
+                onClick={() => onPageChange('series')}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  currentPage === 'series'
+                    ? 'text-[#1F7A8C] bg-[#BFDBF7]'
+                    : 'text-[#BFDBF7] hover:text-[#1F7A8C]'
+                }`}
               >
                 Series
-              </a>
+              </button>
             </div>
 
             {/* Search bar section */}
@@ -58,7 +64,7 @@ const Navbar = () => {
                 <input
                   type="text"
                   className="w-full bg-[#BFDBF7] text-[#053C5E] rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-[#1F7A8C]"
-                  placeholder="Search movies and series..."
+                  placeholder={`Search ${currentPage}...`}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
