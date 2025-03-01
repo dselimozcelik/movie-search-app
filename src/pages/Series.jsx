@@ -77,7 +77,7 @@ function Series() {
   if (error) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="text-[#053C5E] text-center">
+        <div className="text-[#f24333] text-center">
           <h2 className="text-2xl font-bold mb-4">Oops!</h2>
           <p>{error}</p>
         </div>
@@ -89,7 +89,7 @@ function Series() {
     <main className="container mx-auto px-4 py-8 space-y-12">
       {/* Featured Series Section */}
       <section>
-        <h2 className="text-2xl font-bold text-[#053C5E] mb-6">Featured Series</h2>
+        <h2 className="text-2xl font-bold text-[#f24333] mb-6">Featured Series</h2>
         
         {/* Series Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -101,7 +101,7 @@ function Series() {
 
       {/* Genres Section */}
       <section>
-        <h2 className="text-2xl font-bold text-[#053C5E] mb-6">Browse Series by Genre</h2>
+        <h2 className="text-2xl font-bold text-[#f24333] mb-6">Browse Series by Genre</h2>
         
         {/* Genre Cards Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
@@ -119,7 +119,7 @@ function Series() {
       {/* Trending Series by Genre Section */}
       <section className="animate-fadeIn">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-[#053C5E]">
+          <h2 className="text-2xl font-bold text-[#f24333]">
             {selectedGenre ? `Trending Series in ${selectedGenre.name}` : 'Trending Series'}
           </h2>
           {selectedGenre && selectedGenre.id !== 10759 && (

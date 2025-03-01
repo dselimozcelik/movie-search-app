@@ -1,50 +1,37 @@
 /**
  * GenreCard Component
  * 
- * A card component to display movie genres with:
- * - Genre name
- * - Icon or image (placeholder for now)
- * - Hover effect
- * - Selection state
+ * Color Palette:
+ * - Wine: #5B2333
+ * - White Smoke: #F7F4F3
+ * - Walnut Brown: #564D4A
+ * - Vermilion: #F24333
+ * - Cornell Red: #BA1B1D
  */
 
-const GenreCard = ({ genre, icon, isSelected, onClick }) => {
-  // Genre-specific emoji mapping
-  const genreEmojis = {
-    'Action': '🎬',
-    'Comedy': '😂',
-    'Drama': '🎭',
-    'Horror': '👻',
-    'Romance': '💝',
-    'Sci-Fi': '🚀',
-    'Thriller': '🔍',
-    'Documentary': '📹'
-  };
-
+const GenreCard = ({ genre, isSelected, onClick }) => {
   return (
     <div 
       onClick={onClick}
-      className={`bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300 ${
-        isSelected ? 'ring-2 ring-[#1F7A8C] scale-105' : ''
-      }`}
+      className={`
+        relative overflow-hidden rounded-lg cursor-pointer
+        transition-all duration-300 ease-in-out
+        ${isSelected 
+          ? 'bg-[#F24333] text-[#F7F4F3] shadow-lg scale-105' 
+          : 'bg-[#564D4A] text-[#F7F4F3] hover:bg-[#5B2333] hover:text-[#F7F4F3]'
+        }
+      `}
     >
-      <div className="p-4 flex flex-col items-center">
-        {/* Genre Icon */}
-        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-3 transition-colors duration-300 ${
-          isSelected ? 'bg-[#1F7A8C]' : 'bg-[#053C5E]'
-        }`}>
-          <span className="text-[#BFDBF7] text-xl">
-            {genreEmojis[genre] || '🎬'}
-          </span>
-        </div>
-        
-        {/* Genre Name */}
-        <h3 className={`font-medium text-center transition-colors duration-300 ${
-          isSelected ? 'text-[#1F7A8C]' : 'text-[#053C5E]'
-        }`}>
+      <div className="p-4 text-center">
+        <h3 className="text-sm font-medium">
           {genre}
         </h3>
       </div>
+      
+      {/* Selection indicator */}
+      {isSelected && (
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F7F4F3]"></div>
+      )}
     </div>
   );
 };

@@ -7,9 +7,11 @@ function App() {
   const [currentPage, setCurrentPage] = useState('movies'); // 'movies' or 'series'
 
   return (
-    <div className="min-h-screen bg-[#BFDBF7]">
+    <div className="min-h-screen bg-[#E5E5E5]">
       <Navbar currentPage={currentPage} onPageChange={setCurrentPage} />
-      {currentPage === 'movies' ? <Movies /> : <Series />}
+      <div className="pt-4">
+        {currentPage === 'movies' ? <Movies /> : <Series />}
+      </div>
     </div>
   )
 }
