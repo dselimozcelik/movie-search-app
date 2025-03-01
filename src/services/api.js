@@ -172,7 +172,7 @@ export const api = {
   async searchMovies(query) {
     try {
       const response = await fetch(
-        `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1`
+        `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1&include_adult=false`
       );
       return handleResponse(response);
     } catch (error) {
@@ -184,7 +184,7 @@ export const api = {
   async searchSeries(query) {
     try {
       const response = await fetch(
-        `${BASE_URL}/search/tv?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1`
+        `${BASE_URL}/search/tv?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1&include_adult=false`
       );
       return handleResponse(response);
     } catch (error) {
