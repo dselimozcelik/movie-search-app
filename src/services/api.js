@@ -10,6 +10,8 @@ const handleResponse = async (response) => {
 };
 
 export const api = {
+  API_KEY,
+  
   // Movies endpoints
   async getFeaturedMovies() {
     try {
@@ -41,6 +43,42 @@ export const api = {
     }
   },
 
+  async getMovieDetails(movieId) {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+      );
+      return handleResponse(response);
+    } catch (error) {
+      console.error('Error fetching movie details:', error);
+      throw error;
+    }
+  },
+
+  async getMovieCredits(movieId) {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
+      );
+      return handleResponse(response);
+    } catch (error) {
+      console.error('Error fetching movie credits:', error);
+      throw error;
+    }
+  },
+
+  async getMovieVideos(movieId) {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`
+      );
+      return handleResponse(response);
+    } catch (error) {
+      console.error('Error fetching movie videos:', error);
+      throw error;
+    }
+  },
+
   // TV Series endpoints
   async getFeaturedSeries() {
     try {
@@ -62,6 +100,42 @@ export const api = {
       return handleResponse(response);
     } catch (error) {
       console.error('Error fetching series by genre:', error);
+      throw error;
+    }
+  },
+
+  async getSeriesDetails(seriesId) {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/tv/${seriesId}?api_key=${API_KEY}&language=en-US`
+      );
+      return handleResponse(response);
+    } catch (error) {
+      console.error('Error fetching series details:', error);
+      throw error;
+    }
+  },
+
+  async getSeriesCredits(seriesId) {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/tv/${seriesId}/credits?api_key=${API_KEY}`
+      );
+      return handleResponse(response);
+    } catch (error) {
+      console.error('Error fetching series credits:', error);
+      throw error;
+    }
+  },
+
+  async getSeriesVideos(seriesId) {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/tv/${seriesId}/videos?api_key=${API_KEY}&language=en-US`
+      );
+      return handleResponse(response);
+    } catch (error) {
+      console.error('Error fetching series videos:', error);
       throw error;
     }
   },
